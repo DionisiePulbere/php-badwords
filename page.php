@@ -1,6 +1,11 @@
 <?php 
 $word = $_GET['badword'];
 $text = $_GET['comment'];
+
+$originalTextLenght = strlen($text);
+$censoredText = str_replace($word,'***' ,$text);
+$censoredTextLenght = strlen($censoredText);
+
 ?>
 
 <!DOCTYPE html>
@@ -13,11 +18,11 @@ $text = $_GET['comment'];
 <body>
     <div>
         <p> <?php echo $text?>  </p>
-        <div>La lunghezza del paragrafo è di <?php echo strlen($text) ?></div>
+        <div>La lunghezza del paragrafo è di <?php echo $originalTextLenght ?></div>
     </div>
     <div> 
-        <p> <?php echo str_replace($word,'***' ,$text)?>  </p>
-        <div>La lunghezza del paragrafo è di <?php echo strlen($text) ?></div>    
+        <p> <?php echo $censoredText?>  </p>
+        <div>La lunghezza del paragrafo è di <?php echo $censoredTextLenght ?></div>    
     </div>
 </body>
 </html>
